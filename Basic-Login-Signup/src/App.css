@@ -1,0 +1,204 @@
+/* Fonts */
+
+@import url("https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap");
+
+/* Reset stylings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global stylings */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Cal Sans", sans-serif;
+  font-weight: 400;
+  text-align: center;
+  height: 100vh;
+  background: url("../src/assets/HK2.gif") no-repeat center center fixed;
+  background-size: cover;
+  animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+button {
+  font-family: "Cal Sans", sans-serif;
+  background-color: #174a5a;
+  color: rgb(255, 255, 255);
+  font-size: 1rem;
+  padding: 5px 40px;
+  border: 2px solid #bccace;
+  cursor: pointer;
+  margin: 10px;
+  border-radius: 20px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  transition: background-color 0.3s ease, transform 0.2s ease-in-out; /* Smooth transitions */
+}
+
+button:hover {
+  background-color: #131414;
+  transform: scale(1.05); /* Slightly scale */
+}
+
+input {
+  font-family: "Cal Sans", sans-serif;
+  color: rgb(20, 20, 20);
+  font-size: 1rem;
+  padding: 10px 30px;
+  border: 1px solid #bccace;
+  border-radius: 10px;
+  margin: 10px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+  border-color: #609ea7;
+  box-shadow: 2px 2px 6px rgba(96, 158, 167, 0.7);
+}
+
+a {
+  color: #609ea7;
+  text-decoration: none;
+  font-size: 1.2rem;
+  margin-top: 10px;
+  font-style: italic;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Header Landing */
+.content__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.header__text {
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.header__title {
+  font-size: 6rem;
+  margin-bottom: 10px;
+}
+
+.header__subtext {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+/* Animation */
+.content__container {
+  animation: floatUpDown 3s ease-in-out infinite alternate;
+}
+
+@keyframes floatUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Login/Signup */
+
+.signup__container,
+.login__container {
+  width: 90%;
+  max-width: 400px;
+  margin: auto;
+  background: rgba(4, 36, 37, 0.5);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.form__title {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.subtext {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.login-link,
+.signup-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  margin-top: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.input-form {
+  margin: 0;
+  padding: 20px 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.forgot__container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.forgot__password {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.forgot__password:hover {
+  text-decoration: underline;
+}
+
+#login-error-message {
+  color: #c23232;
+  font-size: 0.9rem;
+  margin-top: 5px;
+  font-style: italic;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
