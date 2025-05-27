@@ -2,13 +2,6 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap");
 
-/* Reset stylings */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 /* Global stylings */
 body {
   display: flex;
@@ -30,56 +23,6 @@ body {
   100% {
     opacity: 1;
   }
-}
-
-button {
-  font-family: "Cal Sans", sans-serif;
-  background-color: #174a5a;
-  color: rgb(255, 255, 255);
-  font-size: 1rem;
-  padding: 5px 40px;
-  border: 2px solid #bccace;
-  cursor: pointer;
-  margin: 10px;
-  border-radius: 20px;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  transition: background-color 0.3s ease, transform 0.2s ease-in-out; /* Smooth transitions */
-}
-
-button:hover {
-  background-color: #131414;
-  transform: scale(1.05); /* Slightly scale */
-}
-
-input {
-  font-family: "Cal Sans", sans-serif;
-  color: rgb(20, 20, 20);
-  font-size: 1rem;
-  padding: 10px 30px;
-  border: 1px solid #bccace;
-  border-radius: 10px;
-  margin: 10px;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-input:focus {
-  border-color: #609ea7;
-  box-shadow: 2px 2px 6px rgba(96, 158, 167, 0.7);
-}
-
-a {
-  color: #609ea7;
-  text-decoration: none;
-  font-size: 1.2rem;
-  margin-top: 10px;
-  font-style: italic;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  transition: color 0.3s ease, text-shadow 0.3s ease;
-}
-
-a:hover {
-  text-decoration: underline;
 }
 
 /* Header Landing */
@@ -129,12 +72,12 @@ a:hover {
 
 .signup__container,
 .login__container {
-  width: 90%;
+  width: 100%;
   max-width: 400px;
-  margin: auto;
+  margin-top: 50%;
   background: rgba(4, 36, 37, 0.5);
   border-radius: 20px;
-  padding: 20px;
+  padding: 50px;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 

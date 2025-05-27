@@ -36,24 +36,28 @@ function App() {
 
   return (
     <>
-      <div className="container" id="landingPage">
-        <div className="content__container">
-          <header className="header__text">
-            <h1 className="header__title">Hollow Knights</h1>
-            <p className="header__subtext">
-              Within emptiness, you find purpose. Welcome, Seeker.
-            </p>
-          </header>
-          <div className="button-container">
-            <button className="action-btn" onClick={showLogin}>
-              Log In
-            </button>
-            <button className="action-btn" onClick={showSignup}>
-              Sign Up
-            </button>
+      {/* Conditionals to control the appearance of each sections */}
+      {/* Landing Page */}
+      {!isLoginVisible && !isSignupVisible && (
+        <div className="container" id="landingPage">
+          <div className="content__container">
+            <header className="header__text">
+              <h1 className="header__title">Hollow Knight</h1>
+              <p className="header__subtext">
+                Within emptiness, you find purpose. Welcome, Seeker.
+              </p>
+            </header>
+            <div className="button-container">
+              <button className="action-btn" onClick={showLogin}>
+                Log In
+              </button>
+              <button className="action-btn" onClick={showSignup}>
+                Sign Up
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+      )}
 
       {/* Login section */}
       {isLoginVisible && (
