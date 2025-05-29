@@ -1,10 +1,16 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 import "./App.css";
 
 function App() {
   const [isLoginVisible, setIsLoginVisible] = useState(false);
   const [isSignupVisible, setIsSignupVisible] = useState(false);
+
+  // Refs to access infput fields dierectly
+  const loginUsernameRef = useRef(null);
+  const loginPasswordRef = useRef(null);
+  const signupUsernameRef = useRef(null);
+  const signupPasswordRef = useRef(null);
 
   // Toggle Login form visibility
   const showLogin = () => {
@@ -24,14 +30,60 @@ function App() {
   };
 
   // Validation
-  const validateLogin = (event) => {
+  // fetch to backend
+
+  const validateLogin = async (event) => {
     event.preventDefault();
-    alert("Login validated!");
+
+    const username = loginUsernameRef.current.value;
+    const password = loginPasswordRef.current.value;
+
+    // try catch:
+    try {
+      const res = await fetch("http://localhost:3000/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password }),
+      });
+
+      const message = await res.text();
+
+      if (res.ok) {
+        alert(message);
+        window.location.href = "home.html";
+      } else {
+        alert(message);
+      }
+    } catch (err) {
+      alert("Server error, please try again later.");
+    }
   };
 
-  const validateSignup = (event) => {
+  const validateSignup = async (event) => {
     event.preventDefault();
-    alert("Signup validated!");
+
+    const username = signupUsernameRef.current.value;
+    const password = signupPasswordRef.current.value;
+
+    // try catch:
+    try {
+      const res = await fetch("http://localhost:3000/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password }),
+      });
+
+      const message = await res.text();
+
+      if (res.ok) {
+        alert(message);
+        showLogin();
+      } else {
+        alert(message);
+      }
+    } catch (err) {
+      alert("Server error, please try again later.");
+    }
   };
 
   return (
@@ -72,12 +124,14 @@ function App() {
                 id="username"
                 placeholder="Username"
                 required
+                ref={loginUsernameRef}
               />
               <input
                 type="password"
                 id="password"
                 placeholder="Password"
                 required
+                ref={loginPasswordRef}
               />
               <div className="forgot__container">
                 <a
@@ -114,12 +168,14 @@ function App() {
                 id="signup-username"
                 placeholder="Username"
                 required
+                ref={signupUsernameRef}
               />
               <input
                 type="password"
                 id="signup-password"
                 placeholder="Password"
                 required
+                ref={signupPasswordRef}
               />
               <button type="submit">Sign up</button>
             </div>
