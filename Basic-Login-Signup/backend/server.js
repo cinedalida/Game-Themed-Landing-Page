@@ -1,7 +1,13 @@
-const express = require("express");
-const mysql = require("mysql");
-const bodyParser = require("body-parser");
-const cors = require("cors");
+// const express = require("express");
+// const mysql = require("mysql");
+// const bodyParser = require("body-parser");
+// const cors = require("cors");
+
+// convert to ESM modern syntax
+import express from "express";
+import mysql from "mysql2";
+import bodyParser from "body-parser";
+import cors from "cors";
 const app = express();
 
 app.use(cors());
@@ -10,9 +16,9 @@ app.use(bodyParser.json());
 // DB CONNECTION
 
 const db = mysql.createConnection({
-  host: "localhost",
-  user: "your_mtsql_user",
-  password: "your_mysql_password",
+  host: "127.0.0.1",
+  user: "root",
+  password: "1234",
   database: "user_auth",
 });
 
@@ -42,7 +48,7 @@ app.post("/login", (req, res) => {
 
 app.post("/signup", (req, res) => {
   const { username, password } = req.body;
-  const sql = "INSERT INTRO users (username, password) VALUES (?, ?)";
+  const sql = "INSERT INTO users (username, password) VALUES (?, ?)";
 
   db.query(sql, [username, password], (err, results) => {
     if (err) {
