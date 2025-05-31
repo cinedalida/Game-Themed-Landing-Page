@@ -30,46 +30,6 @@ body {
   }
 }
 
-/* Navbar */
-nav {
-  width: 100%;
-  background-color: #00060c;
-  padding: 1rem;
-  text-align: center;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  flex-wrap: wrap;
-  animation: slideDown 0.5s ease-out;
-}
-
-@keyframes slideDown {
-  0% {
-    transform: translateY(-100%);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  gap: 6rem;
-}
-
-nav ul li a {
-  color: #7ea9bf;
-  text-decoration: none;
-  font-weight: 200;
-  transition: color 0.3s ease;
-}
-
-nav ul li a:hover {
-  color: #fff;
-}
-
 /* Buttons and Inputs */
 button {
   font-family: "Cal Sans", sans-serif;
