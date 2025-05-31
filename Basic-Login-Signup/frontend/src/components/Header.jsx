@@ -1,4 +1,4 @@
-import "./header.css";
+import "../styles/header.css";
 import { Link } from "react-router-dom";
 
 export function Header() {
@@ -7,7 +7,7 @@ export function Header() {
       <nav className="navbar">
         <ul className="nav-links">
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/home">Home</Link>
           </li>
           <li>
             <Link to="/about">About</Link>
