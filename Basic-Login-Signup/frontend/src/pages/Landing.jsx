@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 import "../styles/Landing.css";
 
@@ -50,7 +51,7 @@ export function Landing() {
 
       if (res.ok) {
         alert(message);
-        window.location.href = "home.html";
+        navigate("/home"); // Redirect to home page on successful login
       } else {
         alert(message);
       }
