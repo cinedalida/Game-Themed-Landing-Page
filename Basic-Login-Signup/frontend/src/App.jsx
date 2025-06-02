@@ -10,6 +10,7 @@ import { Footer } from "./components/Footer";
 import { Landing } from "./pages/Landing.jsx";
 import { Home } from "./pages/Home.jsx";
 import { About } from "./pages/About";
+import { Login } from "./pages/Login";
 import { Contact } from "./pages/Contact";
 
 function App() {
@@ -34,6 +35,7 @@ function AppContent() {
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
       {!isLanding && <Footer />}
     </>
