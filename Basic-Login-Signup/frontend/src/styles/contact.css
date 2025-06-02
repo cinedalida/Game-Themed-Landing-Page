@@ -1,0 +1,135 @@
+/* Section 1: contact */
+
+.contact__section1 {
+  padding: 4rem;
+  margin: auto;
+  background: url("../assets/mainBG.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* title and description */
+.content__container {
+  width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  text-align: center;
+}
+
+.contact__titleSubheading {
+  margin-top: -150px;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  /* border: solid 1px red; */
+}
+
+.contact__title {
+  font-size: 5rem;
+  margin-bottom: 10px;
+}
+
+.contact__subheading {
+  font-size: 1.4rem;
+  font-weight: 100;
+  margin-bottom: 10px;
+  font-style: italic;
+}
+
+/* Animation */
+.contact__titleSubheading,
+.icons {
+  animation: floatUpDown 3s ease-in-out infinite alternate;
+}
+
+.icons {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+
+@keyframes floatUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+
+@media (max-width: 1024px) {
+  .content__container {
+    max-width: 90%;
+    padding: 2rem;
+  }
+
+  .contact__title {
+    font-size: 4rem;
+  }
+
+  .contact__subheading {
+    font-size: 1.2rem;
+  }
+
+  nav ul {
+    gap: 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .content__container {
+    max-width: 95%;
+    padding: 1.5rem;
+  }
+
+  .contact__title {
+    font-size: 3rem;
+  }
+
+  .contact__subheading {
+    font-size: 1.1rem;
+  }
+
+  .icons {
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  nav ul {
+    gap: 2rem;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact__title {
+    font-size: 2.2rem;
+  }
+
+  .contact__subheading {
+    font-size: 1rem;
+  }
+
+  nav ul {
+    gap: 1rem;
+    flex-direction: column;
+  }
+
+  .icons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
