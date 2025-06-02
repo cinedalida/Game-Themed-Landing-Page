@@ -6,6 +6,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import { Header } from "./components/Header";
+import { Footer } from "./components/Footer";
 import { Landing } from "./pages/Landing.jsx";
 import { Home } from "./pages/Home.jsx";
 import { About } from "./pages/About";
@@ -28,12 +29,13 @@ function AppContent() {
   return (
     <>
       {!isLanding && <Header />}
-      <Routes>
+      <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Landing />} />
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
+      {!isLanding && <Footer />}
     </>
   );
 }

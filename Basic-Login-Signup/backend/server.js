@@ -34,12 +34,15 @@ app.post("/login", (req, res) => {
   const sql = "SELECT * FROM users WHERE username = ? AND password = ?";
 
   db.query(sql, [username, password], (err, results) => {
-    if (err) return res.status(500).send("Server error");
+    if (err)
+      return res.status(500).json({ success: false, message: "Server error" });
 
     if (results.length > 0) {
-      res.send("Login successful!");
+      res.json({ success: true });
     } else {
-      res.status(401).send("Invalid username or password");
+      res
+        .status(401)
+        .json({ success: false, message: "Invalid username or password" });
     }
   });
 });
