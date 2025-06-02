@@ -7,8 +7,8 @@ CREATE TABLE IF NOT EXISTS users (
   password VARCHAR(255) NOT NULL
 );
 
-
+-- default test user 
 INSERT INTO users (username, password)
-VALUES ('admin', 'password123');
+VALUES ('test.user@gmail.com', 'VeryStrong1234');
 
 SELECT * FROM users;
