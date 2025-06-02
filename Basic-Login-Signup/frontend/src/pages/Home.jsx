@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "../styles/home.css";
 
 import { Header } from "../components/Header";
@@ -6,8 +7,6 @@ import { Footer } from "../components/Footer";
 export function Home() {
   return (
     <>
-      <Header />
-
       {/* Home Section */}
       <section className="home__section1">
         <div className="content__container">
@@ -20,12 +19,12 @@ export function Home() {
             </div>
           </div>
           <div className="home__buttons">
-            <a href="about.html">
+            <Link to="/about">
               <button type="button">About</button>
-            </a>
-            <a href="contact.html">
+            </Link>
+            <Link to="/contact">
               <button type="button">Contact</button>
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -34,17 +33,15 @@ export function Home() {
       <section className="home__section2">
         <div className="content__container">
           <div className="home__gallery">
-            <img src="../assets/pic1.gif" alt="pic1" />
-            <img src="../assets/pic2.gif" alt="pic2" />
-            <img src="../assets/pic3.gif" alt="pic3" />
-            <img src="../assets/pic4.gif" alt="pic4" />
-            <img src="../assets/pic5.gif" alt="pic5" />
-            <img src="../assets/pic6.gif" alt="pic6" />
+            <img src="../src/assets/pic1.gif" alt="pic1" />
+            <img src="../src/assets/pic2.gif" alt="pic2" />
+            <img src="../src/assets/pic3.gif" alt="pic3" />
+            <img src="../src/assets/pic4.gif" alt="pic4" />
+            <img src="../src/assets/pic5.gif" alt="pic5" />
+            <img src="../src/assets/pic6.gif" alt="pic6" />
           </div>
         </div>
       </section>
-
-      <Footer />
     </>
   );
 }

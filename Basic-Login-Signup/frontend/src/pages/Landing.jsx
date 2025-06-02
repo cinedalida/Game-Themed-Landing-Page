@@ -33,6 +33,8 @@ export function Landing() {
   // Validation
   // fetch to backend
 
+  const navigate = useNavigate();
+
   const validateLogin = async (event) => {
     event.preventDefault();
 
@@ -47,13 +49,13 @@ export function Landing() {
         body: JSON.stringify({ username, password }),
       });
 
-      const message = await res.text();
+      const data = await res.json();
 
-      if (res.ok) {
-        alert(message);
+      if (res.ok && data.success) {
+        alert("Login successful!");
         navigate("/home"); // Redirect to home page on successful login
       } else {
-        alert(message);
+        alert(data.message || "Login failed");
       }
     } catch (err) {
       alert("Server error, please try again later.");
@@ -91,105 +93,109 @@ export function Landing() {
     <>
       {/* Conditionals to control the appearance of each sections */}
       {/* Landing Page */}
-      {!isLoginVisible && !isSignupVisible && (
-        <div className="container" id="landingPage">
-          <div className="content__container">
-            <header className="header__text">
-              <h1 className="header__title">Hollow Knight</h1>
-              <p className="header__subtext">
-                Within emptiness, you find purpose. Welcome, Seeker.
-              </p>
-            </header>
-            <div className="button-container">
-              <button className="action-btn" onClick={showLogin}>
-                Log In
-              </button>
-              <button className="action-btn" onClick={showSignup}>
-                Sign Up
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Login section */}
-      {isLoginVisible && (
-        <div className="login__container" id="loginPage">
-          <form className="login-form" onSubmit={validateLogin}>
-            <h2 className="form__title">Login</h2>
-            <p className="subtext">Enter your credentials to continue</p>
-
-            <div className="input-form">
-              <input
-                type="text"
-                id="username"
-                placeholder="Username"
-                required
-                ref={loginUsernameRef}
-              />
-              <input
-                type="password"
-                id="password"
-                placeholder="Password"
-                required
-                ref={loginPasswordRef}
-              />
-              <div className="forgot__container">
-                <a
-                  href="#"
-                  className="forgot__password"
-                  id="forgot-password"
-                  onClick={forgotPassword}
-                >
-                  Forgot password?
-                </a>
+      <section className="landing__bg">
+        {!isLoginVisible && !isSignupVisible && (
+          <div className="container" id="landingPage">
+            <div className="content__container">
+              <header className="header__text">
+                <h1 className="header__title">Hollow Knight</h1>
+                <p className="header__subtext">
+                  Within emptiness, you find purpose. Welcome, Seeker.
+                </p>
+              </header>
+              <div className="button-container">
+                <button className="action-btn" onClick={showLogin}>
+                  Log In
+                </button>
+                <button className="action-btn" onClick={showSignup}>
+                  Sign Up
+                </button>
               </div>
             </div>
-            <button type="submit">Log In</button>
-            <p id="login-error-message"></p>
-          </form>
-          <p className="login-link">
-            Don't have an account?
-            <a href="#" onClick={showSignup}>
-              Sign up
-            </a>
-          </p>
-        </div>
-      )}
+          </div>
+        )}
 
-      {/* Signup section */}
-      {isSignupVisible && (
-        <div className="signup__container" id="signupPage">
-          <form className="signup-form" onSubmit={validateSignup}>
-            <h2 className="form__title">Sign up</h2>
-            <p className="subtext">Fill in the details to create an account</p>
-            <div className="input-form">
-              <input
-                type="text"
-                id="signup-username"
-                placeholder="Username"
-                required
-                ref={signupUsernameRef}
-              />
-              <input
-                type="password"
-                id="signup-password"
-                placeholder="Password"
-                required
-                ref={signupPasswordRef}
-              />
-              <button type="submit">Sign up</button>
-            </div>
-            <p id="signup-error-message"></p>
-          </form>
-          <p className="signup-link">
-            Already have an account?
-            <a href="#" onClick={showLogin}>
-              Log in
-            </a>
-          </p>
-        </div>
-      )}
+        {/* Login section */}
+        {isLoginVisible && (
+          <div className="login__container" id="loginPage">
+            <form className="login-form" onSubmit={validateLogin}>
+              <h2 className="form__title">Login</h2>
+              <p className="subtext">Enter your credentials to continue</p>
+
+              <div className="input-form">
+                <input
+                  type="text"
+                  id="username"
+                  placeholder="Username"
+                  required
+                  ref={loginUsernameRef}
+                />
+                <input
+                  type="password"
+                  id="password"
+                  placeholder="Password"
+                  required
+                  ref={loginPasswordRef}
+                />
+                <div className="forgot__container">
+                  <a
+                    href="#"
+                    className="forgot__password"
+                    id="forgot-password"
+                    onClick={forgotPassword}
+                  >
+                    Forgot password?
+                  </a>
+                </div>
+              </div>
+              <button type="submit">Log In</button>
+              <p id="login-error-message"></p>
+            </form>
+            <p className="login-link">
+              Don't have an account?
+              <a href="#" onClick={showSignup}>
+                Sign up
+              </a>
+            </p>
+          </div>
+        )}
+
+        {/* Signup section */}
+        {isSignupVisible && (
+          <div className="signup__container" id="signupPage">
+            <form className="signup-form" onSubmit={validateSignup}>
+              <h2 className="form__title">Sign up</h2>
+              <p className="subtext">
+                Fill in the details to create an account
+              </p>
+              <div className="input-form">
+                <input
+                  type="text"
+                  id="signup-username"
+                  placeholder="Username"
+                  required
+                  ref={signupUsernameRef}
+                />
+                <input
+                  type="password"
+                  id="signup-password"
+                  placeholder="Password"
+                  required
+                  ref={signupPasswordRef}
+                />
+                <button type="submit">Sign up</button>
+              </div>
+              <p id="signup-error-message"></p>
+            </form>
+            <p className="signup-link">
+              Already have an account?
+              <a href="#" onClick={showLogin}>
+                Log in
+              </a>
+            </p>
+          </div>
+        )}
+      </section>
     </>
   );
 }

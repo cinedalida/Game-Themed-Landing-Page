@@ -1,9 +1,4 @@
-/* Fonts */
-
-@import url("https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap");
-
-/* Global stylings */
-body {
+.landing__bg {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -74,7 +69,7 @@ body {
 .login__container {
   width: 100%;
   max-width: 400px;
-  margin-top: 50%;
+  margin-top: 10%; /* middle of the screen */
   background: rgba(4, 36, 37, 0.5);
   border-radius: 20px;
   padding: 50px;
