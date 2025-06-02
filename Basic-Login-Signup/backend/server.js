@@ -1,25 +1,24 @@
-// const express = require("express");
-// const mysql = require("mysql");
-// const bodyParser = require("body-parser");
-// const cors = require("cors");
+// Load environment variables from .env file
+import dotenv from "dotenv";
+dotenv.config();
 
-// convert to ESM modern syntax
 import express from "express";
 import mysql from "mysql2";
 import bodyParser from "body-parser";
 import cors from "cors";
+
 const app = express();
 
+// Middleware setup
 app.use(cors());
 app.use(bodyParser.json());
 
-// DB CONNECTION
-
+// DB CONNECTION using environment variables
 const db = mysql.createConnection({
-  host: "127.0.0.1",
-  user: "root",
-  password: "1234",
-  database: "user_auth",
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME,
 });
 
 db.connect((err) => {
@@ -65,6 +64,7 @@ app.post("/signup", (req, res) => {
 });
 
 // Run Server
-app.listen(3000, () => {
+const POER = process.env.PORT || 3000;
+app.listen(PORT, () => {
   console.log("Server is running on port 3000");
 });
