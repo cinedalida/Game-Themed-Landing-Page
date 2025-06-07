@@ -1,4 +1,5 @@
 .footer {
+  margin-top: 10rem;
   background-color: #00060c;
   height: 4rem;
   width: 100%;
@@ -12,4 +13,30 @@
   justify-content: space-between;
   align-items: center;
   height: 100%;
+  padding: 0 1rem;
+}
+
+/* 1024px and below */
+@media (max-width: 1024px) {
+  .footer__content {
+    width: 90%;
+  }
+}
+
+/* 768px and below */
+@media (max-width: 768px) {
+  .footer__content {
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+    text-align: center;
+  }
+}
+
+/* 480px and below */
+@media (max-width: 480px) {
+  .footer__content {
+    width: 100%;
+    padding: 0 0.5rem;
+  }
 }
