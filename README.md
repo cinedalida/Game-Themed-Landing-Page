@@ -1,4 +1,4 @@
-# Game-Themed Landing Page
+# Game-Themed-Landing-Page
 
 **Technologies:**  
 HTML, CSS, JavaScript, React.js, MySQL Workbench
