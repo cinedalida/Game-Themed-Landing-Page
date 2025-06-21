@@ -46,3 +46,5 @@ node server.js                # Starts the backend server
 ![Page 1](https://github.com/user-attachments/assets/a2e2fb73-c3d5-452c-a57a-e3676dc31be4)
 ![Page 2](https://github.com/user-attachments/assets/c69e0d54-3402-4176-849f-dc6683e4a7b7)
 
+### Demo Video
+[![Watch the video](https://img.youtube.com/vi/iUzy_BJZXsA/hqdefault.jpg)](https://www.youtube.com/watch?v=iUzy_BJZXsA)
