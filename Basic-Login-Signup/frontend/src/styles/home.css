@@ -194,11 +194,28 @@
 }
 
 .modal-img {
-  width: 400px;
-  height: 400px;
+  width: 800px;
+  height: 800px;
   object-fit: cover;
   display: block;
   margin: 0 auto 1rem;
   border-radius: 8px;
   box-shadow: 0 2px 16px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content {
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: #969696;
+  cursor: pointer;
+  z-index: 1;
+  line-height: 1;
 }
