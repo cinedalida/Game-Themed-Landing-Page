@@ -1,10 +1,26 @@
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/home.css";
+import { ImageModal } from "../components/ImageModal";
 
-import { Header } from "../components/Header";
-import { Footer } from "../components/Footer";
+import pic1 from "../assets/pic1.gif";
+import pic2 from "../assets/pic2.gif";
+import pic3 from "../assets/pic3.gif";
+import pic4 from "../assets/pic4.gif";
+import pic5 from "../assets/pic5.gif";
+import pic6 from "../assets/pic6.gif";
+
+const images = [
+  { src: pic1, alt: "pic1" },
+  { src: pic2, alt: "pic2" },
+  { src: pic3, alt: "pic3" },
+  { src: pic4, alt: "pic4" },
+  { src: pic5, alt: "pic5" },
+  { src: pic6, alt: "pic6" },
+];
 
 export function Home() {
+  const [modalImg, setModalImg] = useState(null);
   return (
     <>
       {/* Home Section */}
@@ -33,15 +49,30 @@ export function Home() {
       <section className="home__section2">
         <div className="content__container">
           <div className="home__gallery">
-            <img src="../src/assets/pic1.gif" alt="pic1" />
-            <img src="../src/assets/pic2.gif" alt="pic2" />
-            <img src="../src/assets/pic3.gif" alt="pic3" />
-            <img src="../src/assets/pic4.gif" alt="pic4" />
-            <img src="../src/assets/pic5.gif" alt="pic5" />
-            <img src="../src/assets/pic6.gif" alt="pic6" />
+            {/* map through images */}
+            {images.map((img, idx) => (
+              <button
+                key={idx}
+                className="gallery-img-btn"
+                onClick={() => setModalImg(img)}
+                style={{
+                  border: "none",
+                  background: "none",
+                  padding: 0,
+                  cursor: "pointer",
+                }}
+              >
+                <img src={img.src} alt={img.alt} />
+              </button>
+            ))}
           </div>
         </div>
       </section>
+      <ImageModal
+        src={modalImg?.src}
+        alt={modalImg?.alt}
+        onClose={() => setModalImg(null)}
+      />
     </>
   );
 }
