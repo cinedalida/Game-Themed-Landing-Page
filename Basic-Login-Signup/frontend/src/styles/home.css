@@ -192,3 +192,13 @@
   display: block;
   margin: 0 auto 1rem;
 }
+
+.modal-img {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.2);
+}
